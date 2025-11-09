@@ -58,15 +58,8 @@ class ReportGenerator {
 
   generateReport(reportType, user, items) {
     const handler = this.reportTypeContentHandlers[reportType];
-    if (typeof handler !== 'function') {
-      throw new TypeError(`Unsupported reportType: ${reportType}`);
-    }
-
     const headerFn = this.staticContent[reportType]?.header;
     const footerFn = this.staticContent[reportType]?.footer;
-    if (typeof headerFn !== 'function' || typeof footerFn !== 'function') {
-      throw new TypeError(`Missing static content for reportType: ${reportType}`);
-    }
 
     let report = '';
     let total = 0;
