@@ -1,4 +1,4 @@
-import { ReportGenerator } from '../src/ReportGenerator.js';
+const { ReportGenerator } = require('../src/ReportGenerator.js');
 
 // --- Dados de Teste ---
 const adminUser = { name: 'Admin', role: 'ADMIN' };
@@ -41,7 +41,7 @@ describe('ReportGenerator (Rede de Segurança)', () => {
       const report = generator.generateReport(
         'HTML',
         adminUser,
-        JSON.parse(JSON.stringify(testItems)), 
+        JSON.parse(JSON.stringify(testItems)),
       );
 
       expect(report).toContain('<h1>Relatório</h1>');
